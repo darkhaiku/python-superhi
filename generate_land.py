@@ -12,13 +12,21 @@ def generate_land(cols=10, rows=10):
     print('finished generating landscape')
 
 def ask_for_number(question):
-    answer = input(question)
+    tries = 0
 
-    if answer.isnumeric():
-        return int(answer)
-    else:
-        print("Oops this didn't make sense!")
-        quit()
+    while tries < 3:
+        answer = input(question)
+
+        if answer == 'quit':
+            quit()
+            
+        if answer.isnumeric():
+            return int(answer)
+        else:
+            print("Oops this didn't make sense!")
+            tries += 1
+    print("This is NOT funny bitch")
+    quit()
 
 cols = ask_for_number("How many cols? ")
 rows = ask_for_number("How many rows? ")
