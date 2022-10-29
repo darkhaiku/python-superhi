@@ -18,7 +18,7 @@ def generate_land(cols=10, rows=10):
     print('finished generating landscape')
 
 
-generate_land(5,5)
+cols = int(input('How many cols? '))
+rows = int(input('How many rows? '))
 
-#calling function with default values 
-generate_land()
+generate_land(cols, rows)
