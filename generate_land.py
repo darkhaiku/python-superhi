@@ -1,6 +1,6 @@
 import random
 
-def generate_land(rows, cols):
+def generate_land(cols=10, rows=10):
 
     data = ['a', 'b', 'c', 'd', 'e', 'f']
 
@@ -19,3 +19,6 @@ def generate_land(rows, cols):
 
 
 generate_land(5,5)
+
+#calling function with default values 
+generate_land()
