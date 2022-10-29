@@ -1,5 +1,7 @@
 import random
 
+from termcolor import colored, cprint
+
 def generate_land(cols=10, rows=10):
     data = ['a', 'b', 'c', 'd', 'e', 'f']
     print(f'Generate a landscape [cols: {cols}] [rows: {rows}]')
@@ -15,17 +17,17 @@ def ask_for_number(question):
     tries = 0
 
     while tries < 3:
-        answer = input(question)
+        answer = input(colored(question, 'green'))
 
         if answer == 'quit':
             quit()
-            
-        if answer.isnumeric():
+
+        elif answer.isnumeric():
             return int(answer)
         else:
-            print("Oops this didn't make sense!")
+            print(colored("Oops this didn't make sense!", 'yellow'))
             tries += 1
-    print("This is NOT funny bitch")
+    print(colored("This is NOT funny bitch", 'red'))
     quit()
 
 cols = ask_for_number("How many cols? ")
