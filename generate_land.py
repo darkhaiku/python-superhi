@@ -1,19 +1,21 @@
 import random
-cols = 12
-rows = 20
-total = cols * rows
 
-data = ['a', 'b', 'c', 'd', 'e', 'f']
+def generate_land(rows, cols):
 
-print(f'Generate a landscape which is {cols} by {rows}')
+    data = ['a', 'b', 'c', 'd', 'e', 'f']
 
-for row in range(rows):
-    row_string = ''
+    print(f'Generate a landscape [cols: {cols}] [rows: {rows}]')
 
-    for col in range(cols):
-        r = random.choice(data)
-        row_string += r
+    for row in range(rows):
+        row_string = ''
 
-    print(row_string)
+        for col in range(cols):
+            r = random.choice(data)
+            row_string += r
 
-print('finished generating landscape')
+        print(row_string)
+
+    print('finished generating landscape')
+
+
+generate_land(5,5)
