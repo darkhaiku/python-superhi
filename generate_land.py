@@ -5,7 +5,7 @@ from termcolor import colored, cprint
 from noise import pnoise2
 
 def generate_land_function(cols=10, rows=10):
-    data = ['⛰️','🌳','🏚️','🌊','🌲','🌲','🌊','🏚️','🌳','⛰️']
+    data = ['.','-','*','$','#','#','$','*','-','.']
     seed = random.randint(0, 100)
     land = ''
 
