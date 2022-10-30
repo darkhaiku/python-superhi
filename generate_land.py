@@ -1,13 +1,22 @@
+import collections
 import random
 
 from termcolor import colored, cprint
+from noise import pnoise2
 
 def generate_land(cols=10, rows=10):
     data = ['a', 'b', 'c', 'd', 'e', 'f']
     print(f'Generate a landscape [cols: {cols}] [rows: {rows}]')
     for row in range(rows):
         row_string = ''
+
+
         for col in range(cols):
+            n = pnoise2(row/rows, col, cols)
+            n *= 100 # n = n * 100 
+            n = round(n)
+            n = n % len(data)
+            print(n)
             r = random.choice(data)
             row_string += r
         print(row_string)
