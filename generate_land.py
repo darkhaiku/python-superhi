@@ -4,14 +4,14 @@ import random
 from termcolor import colored, cprint
 from noise import pnoise2
 
-def generate_land(cols=10, rows=10):
+def generate_land_function(cols=10, rows=10):
     data = ['⛰️','🌳','🏚️','🌊','🌲','🌲','🌊','🏚️','🌳','⛰️']
     seed = random.randint(0, 100)
+    land = ''
 
 
     print(f'Generate a landscape [cols: {cols}] [rows: {rows}]')
     for row in range(rows):
-        row_string = ''
 
 
         for col in range(cols):
@@ -20,9 +20,11 @@ def generate_land(cols=10, rows=10):
             n = round(n)
             n = n % len(data)
 
-            row_string += data[n]
-        print(row_string)
+            land += data[n]
+        land += '\n'
+        
     print('finished generating landscape')
+    return land
 
 def ask_for_number(question):
     tries = 0
@@ -41,6 +43,9 @@ def ask_for_number(question):
     print(colored("This is NOT funny bitch", 'red'))
     quit()
 
-cols = ask_for_number("How many cols? ")
-rows = ask_for_number("How many rows? ")
-generate_land(cols, rows)
+if __name__ == '__main__':
+    cols = ask_for_number("How many cols? ")
+    rows = ask_for_number("How many rows? ")
+    output = generate_land_function(cols, rows)
+    print(output)
+
