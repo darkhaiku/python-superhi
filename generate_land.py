@@ -5,20 +5,22 @@ from termcolor import colored, cprint
 from noise import pnoise2
 
 def generate_land(cols=10, rows=10):
-    data = ['a', 'b', 'c', 'd', 'e', 'f']
+    data = ['⛰️','🌳','🏚️','🌊','🌲','🌲','🌊','🏚️','🌳','⛰️']
+    seed = random.randint(0, 100)
+
+
     print(f'Generate a landscape [cols: {cols}] [rows: {rows}]')
     for row in range(rows):
         row_string = ''
 
 
         for col in range(cols):
-            n = pnoise2(row/rows, col, cols)
-            n *= 100 # n = n * 100 
+            n = pnoise2(row/rows, col, cols, base=seed)
+            n *= 100 # n = n * 100
             n = round(n)
             n = n % len(data)
-            print(n)
-            r = random.choice(data)
-            row_string += r
+
+            row_string += data[n]
         print(row_string)
     print('finished generating landscape')
 
